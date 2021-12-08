@@ -1,0 +1,9 @@
+{
+	"name": "training-data",
+	"location": "southcentralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "fcced3d7-496d-4d98-8661-58dcbde5b3b7",
+		"tenantId": "42827c24-73b0-482e-869f-d6c1e77e57f7"
+	}
+}
