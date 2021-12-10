@@ -1,0 +1,9 @@
+{
+	"name": "sars-covid-reporting",
+	"location": "southcentralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "36d67e94-203c-451b-94b5-7dda45caaf7c",
+		"tenantId": "42827c24-73b0-482e-869f-d6c1e77e57f7"
+	}
+}
