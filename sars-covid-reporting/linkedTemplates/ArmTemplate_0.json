@@ -4,20 +4,24 @@
 	"parameters": {
 		"factoryName": {
 			"type": "string",
-			"metadata": "Data Factory name",
+			"metadata": "Nome do Data Factory",
 			"defaultValue": "sars-covid-reporting"
 		},
 		"ls_ablob_sarscovidreport_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'ls_ablob_sarscovidreport'"
+			"metadata": "Cadeia de caracteres segura para 'connectionString' de 'ls_ablob_sarscovidreport'"
 		},
 		"ls_adls_covidreportdb_accountKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'ls_adls_covidreportdb'"
+			"metadata": "Cadeia de caracteres segura para 'accountKey' de 'ls_adls_covidreportdb'"
 		},
 		"ls_adls_covidreportdb_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://covidreportdb.dfs.core.windows.net"
+		},
+		"tg_ingest_population_data_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/ab767c8d-fee2-4266-9651-311bc8d0819e/resourceGroups/databricks-course/providers/Microsoft.Storage/storageAccounts/sarscovidreport"
 		}
 	},
 	"variables": {
@@ -176,6 +180,7 @@
 							],
 							"storeSettings": {
 								"type": "AzureBlobStorageReadSettings",
+								"recursive": true,
 								"enablePartitionDiscovery": false
 							},
 							"formatSettings": {
@@ -331,6 +336,36 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_population_raw_gz')]",
 				"[concat(variables('factoryId'), '/datasets/ds_population_raw_tsv')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/tg_ingest_population_data')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pl_population_data",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/population/blobs/population_by_age.tsv.gz",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('tg_ingest_population_data_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pl_population_data')]"
 			]
 		}
 	]

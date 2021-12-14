@@ -4,28 +4,32 @@
 	"parameters": {
 		"factoryName": {
 			"type": "string",
-			"metadata": "Data Factory name",
+			"metadata": "Nome do Data Factory",
 			"defaultValue": "sars-covid-reporting"
 		},
 		"ls_ablob_sarscovidreport_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'ls_ablob_sarscovidreport'"
+			"metadata": "Cadeia de caracteres segura para 'connectionString' de 'ls_ablob_sarscovidreport'"
 		},
 		"ls_adls_covidreportdb_accountKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'ls_adls_covidreportdb'"
+			"metadata": "Cadeia de caracteres segura para 'accountKey' de 'ls_adls_covidreportdb'"
 		},
 		"ls_adls_covidreportdb_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://covidreportdb.dfs.core.windows.net"
 		},
+		"tg_ingest_population_data_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/ab767c8d-fee2-4266-9651-311bc8d0819e/resourceGroups/databricks-course/providers/Microsoft.Storage/storageAccounts/sarscovidreport"
+		},
 		"containerUri": {
 			"type": "string",
-			"metadata": "URI to storage account containing linked ARM templates"
+			"metadata": "URI para a conta de armazenamento contendo os modelos do ARM vinculados"
 		},
 		"containerSasToken": {
 			"type": "string",
-			"metadata": "Sas token to storage account containing linked ARM templates"
+			"metadata": "Token SAS para a conta de armazenamento contendo modelos do ARM vinculados"
 		}
 	},
 	"variables": {
@@ -54,6 +58,9 @@
 					},
 					"ls_adls_covidreportdb_properties_typeProperties_url": {
 						"value": "[parameters('ls_adls_covidreportdb_properties_typeProperties_url')]"
+					},
+					"tg_ingest_population_data_properties_typeProperties_scope": {
+						"value": "[parameters('tg_ingest_population_data_properties_typeProperties_scope')]"
 					}
 				}
 			},
