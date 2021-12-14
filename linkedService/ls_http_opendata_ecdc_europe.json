@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://github.com",
+			"url": "https://opendata.ecdc.europa.eu",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
