@@ -75,7 +75,7 @@
 		"variables": {
 			"sourceRelativeURL": {
 				"type": "String",
-				"defaultValue": "cloudboxacademy/covid19/raw/main/ecdc_data/hospital_admissions.csv"
+				"defaultValue": "https://github.com/cloudboxacademy/covid19/raw/main/ecdc_data/hospital_admissions.csv"
 			},
 			"sinkFileName": {
 				"type": "String",
