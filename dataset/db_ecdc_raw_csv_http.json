@@ -1,5 +1,5 @@
 {
-	"name": "db_cases_deaths_raw_csv_http",
+	"name": "db_ecdc_raw_csv_http",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_http_opendata_ecdc_europe",

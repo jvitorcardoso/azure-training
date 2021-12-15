@@ -1,5 +1,5 @@
 {
-	"name": "ds_cases_deaths_raw_csv_dl",
+	"name": "ds_ecdc_raw_csv_dl",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_adls_covidreportdb",
