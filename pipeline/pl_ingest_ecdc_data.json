@@ -1,5 +1,5 @@
 {
-	"name": "pl_ecdc_data",
+	"name": "pl_ingest_ecdc_data",
 	"properties": {
 		"activities": [
 			{
