@@ -14,6 +14,9 @@
 		"ls_adls_covidreportdb_properties_typeProperties_url": {
 			"value": "https://covidreportdb.dfs.core.windows.net"
 		},
+		"ls_http_opendata_ecdc_europe_properties_typeProperties_url": {
+			"value": "https://github.com"
+		},
 		"tg_ingest_population_data_properties_typeProperties_scope": {
 			"value": "/subscriptions/ab767c8d-fee2-4266-9651-311bc8d0819e/resourceGroups/databricks-course/providers/Microsoft.Storage/storageAccounts/sarscovidreport"
 		}
